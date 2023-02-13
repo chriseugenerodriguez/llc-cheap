@@ -37,6 +37,7 @@ jobs:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
           channelId: live
           projectId: llc-cheap
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_LLC_CHEAP }}"
         env:
           FIREBASE_TOKEN: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_LLC_CHEAP }}"
-          PROJECT_PATH: ${{ github.workspace }}
+          PROJECT_PATH: "${{ github.workspace }}"
