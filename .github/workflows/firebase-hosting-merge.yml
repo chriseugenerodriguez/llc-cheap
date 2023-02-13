@@ -16,8 +16,8 @@ jobs:
       
       - name: npm install
         run: | 
-          npm --prefix app install
-          npm --prefix functions install
+          npm --prefix app --legacy-peer-deps install
+          npm --prefix functions --legacy-peer-deps install
 
 #       - name: npm test
 #         run: npm test --if-present
