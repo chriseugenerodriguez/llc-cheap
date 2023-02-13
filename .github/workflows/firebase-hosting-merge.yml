@@ -17,22 +17,22 @@ jobs:
       
       - name: npm install
         run: | 
-          npm --prefix app --legacy-peer-deps install
+          # npm --prefix app --legacy-peer-deps install
           npm --prefix functions --legacy-peer-deps install
 
-      # - name: npm test
-      #   run: | 
-      #     npm --prefix app test --if-present
-      #     npm --prefix functions test --if-present
+      - name: npm test
+        run: | 
+          # npm --prefix app test --if-present
+          npm --prefix functions test --if-present
 
-      # - name: npm lint
-      #   run: |
-      #     npm --prefix app lint --if-present
-      #     npm --prefix functions lint --if-present
+      - name: npm lint
+        run: |
+          # npm --prefix app lint --if-present
+          npm --prefix functions lint --if-present
 
       - name: npm build
         run: |
-          npm --prefix app run build
+          # npm --prefix app run build
           npm --prefix functions run build
 
       - name: Deploy
