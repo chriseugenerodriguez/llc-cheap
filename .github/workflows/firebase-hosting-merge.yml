@@ -20,10 +20,14 @@ jobs:
           npm --prefix functions --legacy-peer-deps install
 
       - name: npm test
-        run: npm test --if-present
+        run: | 
+          npm --prefix app test --if-present
+          npm --prefix functions test --if-present
 
       - name: npm lint
-        run: npm lint --if-present
+        run: |
+          npm --prefix app lint --if-present
+          npm --prefix functions lint --if-present
 #   deploy:
 #     runs-on: ubuntu-latest
 #     steps:
