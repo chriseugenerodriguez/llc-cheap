@@ -22,7 +22,6 @@ jobs:
 
       - name: npm test
         run: |
-          npm --prefix app test --if-present || true
           npm --prefix functions test --if-present || true
 
       - name: npm lint
