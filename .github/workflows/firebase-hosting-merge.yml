@@ -16,23 +16,19 @@ jobs:
           fetch-depth: 0
       
       - name: npm install
-        run: | 
-          # npm --prefix app --legacy-peer-deps install
+        run: |
           npm --prefix functions --legacy-peer-deps install
 
       - name: npm test
-        run: | 
-          # npm --prefix app test --if-present
+        run: |
           npm --prefix functions test --if-present
 
       - name: npm lint
         run: |
-          # npm --prefix app lint --if-present
           npm --prefix functions lint --if-present
 
       - name: npm build
         run: |
-          # npm --prefix app run build
           npm --prefix functions run build
 
       - name: Deploy
