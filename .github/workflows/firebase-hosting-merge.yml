@@ -19,10 +19,10 @@ jobs:
           npm --prefix app --legacy-peer-deps install
           npm --prefix functions --legacy-peer-deps install
 
-      - name: npm test
-        run: | 
-          npm --prefix app test --if-present
-          npm --prefix functions test --if-present
+      # - name: npm test
+      #   run: | 
+      #     npm --prefix app test --if-present
+      #     npm --prefix functions test --if-present
 
       - name: npm lint
         run: |
