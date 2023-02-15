@@ -30,8 +30,8 @@ jobs:
 
       - name: npm build
         run: |
-          cd app; npm run build
-          cd ./../functions; npm run build
+          npm --prefix app run build
+          npm --prefix functions run build
 
       - name: Deploy
         uses: FirebaseExtended/action-hosting-deploy@v0
