@@ -7,7 +7,7 @@
     "build": "ng build -c production",
     "dev:ssr": "ng run llc:serve-ssr",
     "serve:ssr": "node dist/server/main.js",
-    "build:ssr": "ng build && ng run llc:server",
+    "build:ssr": "ng build --aot && ng run llc:server",
     "test": "ng test"
   },
   "private": true,
