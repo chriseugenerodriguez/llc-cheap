@@ -1,5 +1,4 @@
-import { Injectable, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { Injectable, OnDestroy } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { LocalStorage, SessionStorage } from '..';
 import { Router } from '@angular/router';
@@ -20,8 +19,7 @@ export class AuthService implements OnDestroy {
     public afAuth: AngularFireAuth,
     private _localStorage: LocalStorage,
     private _sessionStorage: SessionStorage,
-    private router: Router,
-    @Inject(PLATFORM_ID) private platform: any) {
+    private router: Router) {
   }
 
   ngOnDestroy() {
@@ -97,7 +95,7 @@ export class AuthService implements OnDestroy {
     if (!this.isAuthenticated()) { return; }
     this.unscheduleRenewal();
 
-    const expiresAt = isPlatformBrowser(this.platform) ? JSON.parse(window.localStorage.getItem('expires_at')!): {};
+    const expiresAt = JSON.parse(window.localStorage.getItem('expires_at')!);
 
     const expiresIn$ = of(expiresAt).pipe(
       mergeMap(

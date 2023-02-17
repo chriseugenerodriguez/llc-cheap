@@ -4,12 +4,7 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 
 // HAMMER
-if (typeof window !== undefined) {
-  import(/* webpackChunkName: "hammerjs" */ 'hammerjs').then(Hammer => {
-    // Use Hammer.js here
-  });
-}
-
+import * as Hammer from 'hammerjs';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +26,7 @@ export class HammerService {
 
   SwipeLeftDownClose(htmlElement: HTMLElement): Observable<any> {
     return new Observable((status) => {
-      if (htmlElement && typeof window !== 'undefined') {
+      if (htmlElement) {
         const sd = new Hammer(htmlElement);
         sd.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
         sd.on('swipedown', () => {
@@ -53,7 +48,7 @@ export class HammerService {
 
   Swipe(htmlElement: HTMLElement): Observable<any> {
     return new Observable((status) => {
-      if (htmlElement && typeof window !== 'undefined') {
+      if (htmlElement) {
         const sd = new Hammer(htmlElement);
         sd.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
         sd.on('swipeleft', () => {
@@ -87,7 +82,7 @@ export class HammerService {
 
   SwipeUp(htmlElement: HTMLElement): Observable<any> {
     return new Observable((status) => {
-      if (htmlElement && typeof window !== 'undefined') {
+      if (htmlElement) {
         const sd = new Hammer(htmlElement);
         sd.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
         sd.on('swipeup', () => {
@@ -102,7 +97,7 @@ export class HammerService {
 
   SwipeDown(htmlElement: HTMLElement): Observable<any> {
     return new Observable((status) => {
-      if (htmlElement && typeof window !== 'undefined') {
+      if (htmlElement) {
         const sd = new Hammer(htmlElement);
         sd.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
         sd.on('swipedown', () => {
@@ -117,7 +112,7 @@ export class HammerService {
 
   SwipeLeft(htmlElement: HTMLElement): Observable<any> {
     return new Observable((status) => {
-      if (htmlElement && typeof window !== 'undefined') {
+      if (htmlElement) {
         const sd = new Hammer(htmlElement);
         sd.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
         sd.on('swipeleft', () => {
@@ -132,7 +127,7 @@ export class HammerService {
 
   SwipeRight(htmlElement: HTMLElement): Observable<any> {
     return new Observable((status) => {
-      if (htmlElement && typeof window !== 'undefined') {
+      if (htmlElement) {
         const sd = new Hammer(htmlElement);
         sd.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
         sd.on('swiperight', () => {
