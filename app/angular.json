@@ -80,7 +80,7 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "llc:build:production",
+              "browserTarget": "llc:build:production"
             },
             "development": {
               "browserTarget": "llc:build:development"
@@ -141,6 +141,19 @@
             "production": {
               "browserTarget": "llc:build:production",
               "serverTarget": "llc:server:production",
+              "prerender": {
+                "options": {
+                  "guessRoutes": false,
+                  "routes": [
+                    "/",
+                    "login",
+                    "forgot-password",
+                    "resources",
+                    "business",
+                    "account"
+                  ]
+                }
+              },
               "optimization": true,
               "buildOptimizer": true,
               "aot": true
@@ -148,11 +161,38 @@
           },
           "defaultConfiguration": "development"
         },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "guessRoutes": false,
+            "routes": [
+              "/",
+              "login",
+              "forgot-password",
+              "resources",
+              "business",
+              "account"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "llc:build:production",
+              "serverTarget": "llc:server:production",
+              "guessRoutes": false
+            },
+            "development": {
+              "browserTarget": "llc:build:development",
+              "serverTarget": "llc:server:development",
+              "guessRoutes": false
+            }
+          },
+          "defaultConfiguration": "production"
+        },
         "deploy": {
           "builder": "@angular/fire:deploy",
           "options": {
-            "prerender": false,
-            "ssr": false,
+            "prerender": true,
+            "ssr": true,
             "browserTarget": "llc:build:production",
             "firebaseProject": "llc-cheap",
             "firebaseHostingSite": "llc-cheap"
@@ -162,6 +202,9 @@
     }
   },
   "cli": {
-    "analytics": "e5c00eaa-8ec4-4650-8ea3-c504b03f676d"
+    "analytics": "e5c00eaa-8ec4-4650-8ea3-c504b03f676d",
+    "cache": {
+      "environment": "all"
+    }
   }
 }
