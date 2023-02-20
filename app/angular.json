@@ -37,6 +37,7 @@
                 "src/assets/icons",
                 "src/assets/img",
                 "src/assets/svg",
+                "src/assets/json",
                 "src/robots.txt",
                 "src/.htaccess"
               ],
